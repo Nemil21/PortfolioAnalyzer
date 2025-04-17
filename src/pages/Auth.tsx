@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFinance } from '@/context/FinanceContext';
@@ -70,10 +69,11 @@ const Auth = () => {
     setIsSubmitting(true);
     setFormError('');
     
-    const result = await login('demo@example.com', 'demo123456');
+    // Use the provided demo account credentials
+    const result = await login('nemilshah2106@gmail.com', 'admin@123');
     
     if (!result.success) {
-      setFormError(result.error || 'Failed to sign in');
+      setFormError(result.error || 'Failed to sign in with demo account');
     }
     
     setIsSubmitting(false);

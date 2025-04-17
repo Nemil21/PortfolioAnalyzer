@@ -142,9 +142,6 @@ const Header = () => {
                 <Button variant="ghost" className="justify-start" asChild onClick={() => setShowMobileMenu(false)}>
                   <Link to="/transactions">Transactions</Link>
                 </Button>
-                <Button variant="ghost" className="justify-start" asChild onClick={() => setShowMobileMenu(false)}>
-                  <Link to="/settings">Settings</Link>
-                </Button>
               </div>
               
               <div className="mt-auto">
