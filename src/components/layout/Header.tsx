@@ -118,12 +118,16 @@ const Header = () => {
         <>
           {/* Backdrop - blurred overlay for the main area */}
           <div 
-            className="fixed inset-0 top-16 z-40 bg-black/40 backdrop-blur-md animate-in fade-in"
+            className="fixed inset-0 top-16 bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
+            style={{ zIndex: 100 }}
             onClick={() => setShowMobileMenu(false)}
           />
           
           {/* Actual sidebar with navigation items */}
-          <div className="fixed top-16 left-0 bottom-0 z-50 w-64 bg-background/95 border-r border-white/10 animate-in slide-in-from-left">
+          <div 
+            className="fixed top-16 left-0 bottom-0 w-64 bg-background/95 border-r border-white/20 animate-in slide-in-from-left duration-200 shadow-xl"
+            style={{ zIndex: 101 }}
+          >
             <nav className="flex flex-col h-full p-4 space-y-4">
               <div className="flex flex-col space-y-1">
                 <Button variant="ghost" className="justify-start" asChild onClick={() => setShowMobileMenu(false)}>
