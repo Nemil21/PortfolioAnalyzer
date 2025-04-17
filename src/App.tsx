@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import Transactions from "./pages/Transactions";
+import Portfolio from "./pages/Portfolio";
 import AuthGuard from "./components/auth/AuthGuard";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
             
             <Route element={<AuthGuard />}>
               <Route path="/" element={<Index />} />
+              <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/transactions" element={<Transactions />} />
               {/* Additional protected routes go here */}
             </Route>

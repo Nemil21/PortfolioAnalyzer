@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PerformanceData } from '@/data/mockData';
 import { Skeleton } from '@/components/ui/skeleton';
-import PerformanceChart from './PerformanceChart';
 
 interface PerformanceMetricsProps {
   performanceData: PerformanceData;
@@ -43,7 +42,6 @@ const PerformanceMetrics: React.FC<PerformanceMetricsProps> = ({
           <Skeleton className="h-6 w-32" />
         </div>
       </div>
-      <Skeleton className="h-[200px] w-full mt-6" />
     </div>
   );
   
@@ -77,14 +75,10 @@ const PerformanceMetrics: React.FC<PerformanceMetricsProps> = ({
             </div>
             <div className="p-4 rounded-lg bg-secondary/20">
               <p className="text-xs text-muted-foreground mb-1">Yearly Change</p>
-              <p className={`text-xl font-semibold ${(performanceData.yearlyMetric?.[0]?.value || 0) >= 0 ? 'text-finance-profit' : 'text-finance-loss'}`}>
-                {formatCurrency(performanceData.yearlyMetric?.[0]?.value || 0)}
+              <p className={`text-xl font-semibold ${(performanceData.monthlyMetric?.[0]?.value || 0) >= 0 ? 'text-finance-profit' : 'text-finance-loss'}`}>
+                {formatCurrency(performanceData.monthlyMetric?.[0]?.value || 0)}
               </p>
             </div>
-          </div>
-          
-          <div className="mt-6">
-            <PerformanceChart data={performanceData} />
           </div>
         </div>
       </CardContent>

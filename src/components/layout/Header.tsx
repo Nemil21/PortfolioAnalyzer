@@ -40,7 +40,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 backdrop-blur-md animate-fade-in">
       <div className="flex h-16 items-center justify-between w-full px-4">
-        {/* Left side - FinTrade logo */}
+        {/* Left side - PortWiz logo */}
         <div className="flex items-center">
           {isMobile && (
             <Button
@@ -58,9 +58,9 @@ const Header = () => {
           )}
           <Link to="/" className="flex items-center">
             <div className="h-8 w-8 rounded-full bg-finance-teal flex items-center justify-center mr-2">
-              <span className="text-black font-bold">F</span>
+              <span className="text-black font-bold">PW</span>
             </div>
-            <span className="text-xl font-bold hidden sm:inline-block">FinTrade</span>
+            <span className="text-xl font-bold hidden sm:inline-block">PortWiz</span>
           </Link>
         </div>
 

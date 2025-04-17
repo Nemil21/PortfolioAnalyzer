@@ -98,7 +98,7 @@ const Auth = () => {
             <div className="h-12 w-12 rounded-full bg-finance-teal flex items-center justify-center mr-3">
               <BarChart3 className="h-6 w-6 text-black" />
             </div>
-            <h1 className="text-3xl font-bold">FinTrade</h1>
+            <h1 className="text-3xl font-bold">PortWiz</h1>
           </div>
           <p className="text-muted-foreground">Manage your investments with confidence</p>
         </div>

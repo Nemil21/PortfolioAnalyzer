@@ -125,8 +125,8 @@ const PerformanceChart: React.FC<PerformanceChartProps> = ({ data }) => {
             </div>
           </div>
           
-          <div className="h-[300px] overflow-x-auto">
-            <ResponsiveContainer width={timeframe === 'monthly' ? '200%' : '100%'} height="100%">
+          <div className="h-[350px] overflow-x-auto">
+            <ResponsiveContainer width={timeframe === 'monthly' ? '120%' : '100%'} height="100%">
               <AreaChart
                 data={chartData}
                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
@@ -175,8 +175,8 @@ const PerformanceChart: React.FC<PerformanceChartProps> = ({ data }) => {
             </div>
           </div>
           
-          <div className="h-[300px] overflow-x-auto">
-            <ResponsiveContainer width={timeframe === 'monthly' ? '200%' : '100%'} height="100%">
+          <div className="h-[350px] overflow-x-auto">
+            <ResponsiveContainer width={timeframe === 'monthly' ? '120%' : '100%'} height="100%">
               <AreaChart
                 data={chartData}
                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
@@ -225,8 +225,8 @@ const PerformanceChart: React.FC<PerformanceChartProps> = ({ data }) => {
             </div>
           </div>
           
-          <div className="h-[300px] overflow-x-auto">
-            <ResponsiveContainer width={timeframe === 'monthly' ? '200%' : '100%'} height="100%">
+          <div className="h-[350px] overflow-x-auto">
+            <ResponsiveContainer width={timeframe === 'monthly' ? '120%' : '100%'} height="100%">
               <AreaChart
                 data={chartData}
                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
