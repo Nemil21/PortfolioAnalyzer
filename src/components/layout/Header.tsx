@@ -115,34 +115,50 @@ const Header = () => {
 
       {/* Mobile Navigation Menu */}
       {isMobile && showMobileMenu && (
-        <div className="fixed inset-0 top-16 z-40 bg-background/95 backdrop-blur-sm animate-in fade-in">
-          <nav className="flex flex-col h-full p-4 space-y-4">
-            <div className="flex flex-col space-y-1">
-              <Button variant="ghost" className="justify-start" asChild>
-                <Link to="/">Dashboard</Link>
-              </Button>
-              <Button variant="ghost" className="justify-start">
-                Portfolio
-              </Button>
-              <Button variant="ghost" className="justify-start">
-                Watchlist
-              </Button>
-              <Button variant="ghost" className="justify-start">
-                Transactions
-              </Button>
-              <Button variant="ghost" className="justify-start">
-                Settings
-              </Button>
-            </div>
-            
-            <div className="mt-auto">
-              <Button variant="ghost" className="w-full justify-start" onClick={handleLogout}>
-                <LogOut className="mr-2 h-4 w-4" />
-                Log out
-              </Button>
-            </div>
-          </nav>
-        </div>
+        <>
+          {/* Backdrop - blurred overlay for the main area */}
+          <div 
+            className="fixed inset-0 top-16 z-40 bg-black/40 backdrop-blur-md animate-in fade-in"
+            onClick={() => setShowMobileMenu(false)}
+          />
+          
+          {/* Actual sidebar with navigation items */}
+          <div className="fixed top-16 left-0 bottom-0 z-50 w-64 bg-background/95 border-r border-white/10 animate-in slide-in-from-left">
+            <nav className="flex flex-col h-full p-4 space-y-4">
+              <div className="flex flex-col space-y-1">
+                <Button variant="ghost" className="justify-start" asChild onClick={() => setShowMobileMenu(false)}>
+                  <Link to="/">Dashboard</Link>
+                </Button>
+                <Button variant="ghost" className="justify-start" asChild onClick={() => setShowMobileMenu(false)}>
+                  <Link to="/portfolio">Portfolio</Link>
+                </Button>
+                <Button variant="ghost" className="justify-start" asChild onClick={() => setShowMobileMenu(false)}>
+                  <Link to="/watchlist">Watchlist</Link>
+                </Button>
+                <Button variant="ghost" className="justify-start" asChild onClick={() => setShowMobileMenu(false)}>
+                  <Link to="/transactions">Transactions</Link>
+                </Button>
+                <Button variant="ghost" className="justify-start" asChild onClick={() => setShowMobileMenu(false)}>
+                  <Link to="/settings">Settings</Link>
+                </Button>
+              </div>
+              
+              <div className="mt-auto">
+                <Button 
+                  variant="ghost" 
+                  className="w-full justify-start" 
+                  onClick={() => {
+                    setShowMobileMenu(false);
+                    handleLogout();
+                  }}
+                >
+                  <LogOut className="mr-2 h-4 w-4" />
+                  Log out
+                </Button>
+              </div>
+            </nav>
+          </div>
+        </>
       )}
     </header>
   );
