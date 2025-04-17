@@ -1,10 +1,11 @@
-
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts';
 
-const FINNHUB_API_KEY = 'cvudpv1r01qjg1396060cvudpv1r01qjg139606g';
+// Read secrets from Deno environment variables
+const FINNHUB_API_KEY = Deno.env.get("FINNHUB_API_KEY");
+const FINNHUB_WEBHOOK_SECRET = Deno.env.get("FINNHUB_WEBHOOK_SECRET");
 
 const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Origin': '*', // Allow requests from your Vercel frontend domain in production
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
@@ -22,6 +23,10 @@ serve(async (req) => {
   }
 
   try {
+    if (!FINNHUB_API_KEY || !FINNHUB_WEBHOOK_SECRET) {
+      throw new Error("Finnhub API Key or Webhook Secret not configured in function environment variables.");
+    }
+
     if (req.method !== 'GET') {
       return new Response(JSON.stringify({ error: 'Method not allowed' }), {
         status: 405,
@@ -40,13 +45,13 @@ serve(async (req) => {
       });
     }
 
-    // Make request to Finnhub API
+    // Make request to Finnhub API using environment variables
     const finnhubResponse = await fetch(
       `https://finnhub.io/api/v1/search?q=${encodeURIComponent(query)}&token=${FINNHUB_API_KEY}`,
       {
         headers: {
           'Content-Type': 'application/json',
-          'X-Finnhub-Secret': 'cvudpv1r01qjg139607g',
+          'X-Finnhub-Secret': FINNHUB_WEBHOOK_SECRET, // Use environment variable
         },
       }
     );
